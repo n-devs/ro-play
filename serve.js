@@ -3,13 +3,13 @@ const cors = require('cors')
 const https = require('https');
 const path = require('node:path');
 const fs = require("node:fs")
+const http = require('http')
 
 
-
-const options = {
-    key: fs.readFileSync(path.join(__dirname, "sslcert", "localhost-key.pem")),
-    cert: fs.readFileSync(path.join(__dirname, "sslcert", "localhost.pem")),
-};
+// const options = {
+//     key: fs.readFileSync(path.join(__dirname, "sslcert", "localhost-key.pem")),
+//     cert: fs.readFileSync(path.join(__dirname, "sslcert", "localhost.pem")),
+// };
 
 const app = express()
 
@@ -30,9 +30,11 @@ app.get('/', function(req, res){
     res.render('index', { });
   });
 
-var httpsServer = https.createServer(options, app);
+  var httpServer = http.createServer(app);
+
+// var httpsServer = https.createServer(options, app);
 
 const port = 8000
-httpsServer.listen(port, () => {
-    console.log(`Start server at port https://localhost:${port}/`)
+httpServer.listen(port, () => {
+    console.log(`Start server at port http://localhost:${port}/`)
 })

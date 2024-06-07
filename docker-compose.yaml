@@ -1,0 +1,19 @@
+version: '3' # vs mais atual
+
+services:
+  play:
+    build: ./
+    container_name: ro-play
+    restart: always
+    tty: true
+    working_dir: /ro-play
+    volumes:
+      - ./:/ro-play
+    ports:
+      - "8000:8000"
+    networks:
+      - ro-network
+
+networks:
+  ro-network:
+    driver: bridge

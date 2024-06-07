@@ -3,6 +3,7 @@ const loaderBox = document.getElementById("box-loader")
 const bg = document.getElementById("bg")
 
 
+
 function run() {
 
     window.lastTouchTimestamp = 0;
@@ -27,10 +28,10 @@ function run() {
 
 
             window.ROConfig = {
-                "remoteClient": `https://${data.ipv4}:5737/`,
+                "remoteClient": `http://${data.ipv4}:5737/`,
                 "width": "100%",
                 "height": "100%",
-                "socketProxy": `ws://${data.ipv4}:5999`,
+                "socketProxy": `ws://${data.ipv4}:5999/`,
                 "servers": [
                     {
                         "display": "เซิฟเวอร์ต่างโลก",
@@ -41,7 +42,7 @@ function run() {
                         "langtype": 5,
                         "packetver": 20141022,
                         "forceUseAddress": true,
-                        "socketProxy": `ws://${data.ipv4}:5999`,
+                        "socketProxy": `ws://${data.ipv4}:5999/`,
                         "packetKeys": true
                     }
                 ],
